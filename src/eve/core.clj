@@ -18,3 +18,16 @@
   (set-x-range 500 2012)
   (set-y-range 0 1300000000)
   view)
+
+(defn get-account-type [cash]
+  (cond
+    (< cash 1000)  :normal
+    (< cash 10000) :silver
+    :else          :gold))
+
+(time (dotimes [_ 1000] (get-account-type (rand 20000)))) 
+(time (dotimes [_ 1000] (get-account-type (rand 20000)))) 
+(time (dotimes [_ 1000] (get-account-type (rand 20000)))) 
+(dotimes [_ 1000000] (get-account-type (rand 20000)))
+(time (dotimes [_ 1000] (get-account-type (rand 20000)))) 
+
